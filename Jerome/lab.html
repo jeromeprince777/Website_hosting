@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Diet & Fitness Plan</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            background-image: linear-gradient(to bottom right, #F7FAF8, #E8F3F1);
+            background-attachment: fixed;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            overflow: auto; /* Important: ensures the section contains the floated image */
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 { color: #008C73; font-weight: 700; }
+        h1 { font-size: 2.8em; text-align: center; margin-bottom: 10px; }
+        h2 { font-size: 2.2em; border-bottom: 2px solid #008C73; padding-bottom: 10px; margin-bottom: 20px; }
+        h3 { font-size: 1.6em; color: #006A58; }
+        p, li, dd, dt { font-size: 1.1em; }
+        a { color: #008C73; text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+
+        /* --- Components --- */
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 20px auto 0;
+        }
+        
+        /* --- CSS FOR THE NEW IMAGE --- (ADDED HERE) */
+        .image-with-text {
+            float: right; /* Makes text wrap around it */
+            width: 280px; /* Sets a fixed width */
+            height: auto; /* Maintains aspect ratio */
+            margin-left: 25px; /* Space between image and text */
+            margin-bottom: 15px; /* Space below image */
+            border-radius: 12px; /* Soft corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .products-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
+        .product-card { background-color: #fff; text-align: center; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); width: 200px; transition: transform 0.2s, box-shadow 0.2s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
+        .product-card img { width: 150px; height: 150px; object-fit: cover; }
+        .product-card p { font-size: 1em; margin: 15px 0; }
+
+        button { background-color: #008C73; color: white; border: none; padding: 12px 25px; border-radius: 50px; font-size: 1em; font-weight: 600; cursor: pointer; transition: background-color 0.2s, transform 0.2s; }
+        button:hover { background-color: #006A58; transform: scale(1.05); }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        thead { background-color: #008C73; color: white; font-size: 1.1em; }
+        tbody tr:nth-child(even) { background-color: rgba(249, 249, 249, 0.7); }
+        tbody tr:hover { background-color: #E8F3F1; }
+
+        dl dt { font-weight: 700; color: #333; }
+        dl dd { margin-left: 0; margin-bottom: 15px; padding-left: 20px; border-left: 3px solid #008C73; }
+        
+        footer { text-align: center; padding: 20px; margin-top: 40px; color: #555; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section id="top">
+            <h1>Your Holistic Fitness Plan 🥗</h1>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.2em;">A complete guide to nourishing your body and building strength, inside and out.</p>
+            <a href="https://www.example.com/healthy-recipes" target="_blank">
+                <img src="images/healthy-food.jpg" alt="A platter of healthy food" class="hero-image">
+            </a>
+        </section>
+        
+        <section>
+            <h2>Quick Navigation</h2>
+            <ul>
+                <li><a href="#philosophy">Our Diet Philosophy</a></li>
+                <li><a href="#meal-plan">Weekly Meal Plan</a></li>
+                <li><a href="#fitness-routine">Weekly Fitness Routine</a></li>
+                <li><a href="#products">Featured Products</a></li>
+                <li><a href="#glossary">Dietary Glossary</a></li>
+            </ul>
+        </section>
+
+        <section id="philosophy">
+            <h2>Our Diet Philosophy</h2>
+            
+            <img src="images/healthy-food-platter.jpg" alt="A vibrant platter of healthy foods like fruits, nuts, and vegetables" class="image-with-text">
+            
+            <p>This isn't a restrictive diet; it's a lifestyle built on balance, nourishment, and sustainability. Our philosophy focuses on:</p>
+            <ul>
+                <li><strong>Whole Foods:</strong> Prioritizing foods that are as close to their natural state as possible—fruits, vegetables, lean proteins, and whole grains.</li>
+                <li><strong>Mindful Eating:</strong> Paying attention to your body's hunger and fullness cues. Eat when you're hungry, stop when you're satisfied.</li>
+                <li><strong>80/20 Rule:</strong> Aim to eat nutritious foods 80% of the time, leaving 20% for flexible treats. This makes healthy eating sustainable and enjoyable without guilt.</li>
+                <li><strong>Hydration:</strong> Water is essential for energy, metabolism, and overall health. We emphasize consistent hydration throughout the day.</li>
+            </ul>
+        </section>
+
+        <section id="meal-plan">
+            <h2>Weekly Meal Schedule</h2>
+            <table><thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead><tbody><tr><td>Monday</td><td>Oatmeal with Berries</td><td>Quinoa Salad with Chickpeas</td><td>Grilled Chicken & Veggies</td></tr><tr><td>Tuesday</td><td>Scrambled Eggs with Spinach</td><td>Lentil Soup</td><td>Baked Salmon & Asparagus</td></tr><tr><td>Wednesday</td><td>Greek Yogurt with Nuts</td><td>Whole Wheat Wrap with Hummus</td><td>Tofu Stir-fry</td></tr><tr><td>Thursday</td><td>Smoothie with Protein Powder</td><td>Chicken Salad Sandwich</td><td>Brown Rice with Black Beans</td></tr><tr><td>Friday</td><td>Whole Grain Pancakes</td><td>Tuna Salad</td><td>Pasta with Marinara Sauce</td></tr><tr><td>Saturday</td><td>Avocado Toast</td><td>Leftover Pasta</td><td>Homemade Pizza on Whole Wheat</td></tr><tr><td>Sunday</td><td>Omelette with Peppers</td><td>Grilled Cheese on Whole Wheat</td><td>Roast Chicken & Root Vegetables</td></tr></tbody></table>
+        </section>
+
+        <section>
+            <h2>Fueling Your Body Right</h2>
+            <h3>Hydration is Key 💧</h3>
+            <p>Aim for 8-10 glasses (about 2-3 liters) of water per day. Your needs may increase with intense exercise.</p>
+            <ul><li>Carry a reusable water bottle as a constant reminder.</li><li>Infuse your water with lemon, cucumber, or mint for a refreshing twist.</li><li>Herbal teas and broths also contribute to your daily fluid intake.</li></ul>
+            <h3>Smart Snacking</h3>
+            <p>Healthy snacks can prevent overeating at main meals and keep your energy levels stable. Choose snacks that combine protein and fiber.</p>
+            <ul><li>Greek yogurt with a handful of berries.</li><li>Apple slices with a tablespoon of almond butter.</li><li>A small handful of mixed nuts and seeds.</li><li>Baby carrots with hummus.</li></ul>
+        </section>
+        
+        <section id="fitness-routine">
+            <h2>Complementary Fitness Routine</h2>
+            <p>Nutrition is only half the equation. Pairing your diet with consistent exercise will amplify your results, boost your mood, and improve your long-term health.</p>
+            <h3>The Core Principles</h3>
+            <ul><li><strong>Cardiovascular Exercise:</strong> Activities that raise your heart rate to improve heart health and burn calories.</li><li><strong>Strength Training:</strong> Using resistance (weights, bands, or bodyweight) to build and maintain muscle mass, which boosts metabolism.</li><li><strong>Flexibility & Mobility:</strong> Stretching and movement to improve range of motion, prevent injury, and reduce soreness.</li></ul>
+            <h3>Sample Weekly Workout Split</h3>
+            <table><thead><tr><th>Day</th><th>Focus</th><th>Example Activities</th></tr></thead><tbody><tr><td>Monday</td><td>Full Body Strength</td><td>Squats, Push-ups, Rows, Lunges, Plank (3 sets of 10-12 reps)</td></tr><tr><td>Tuesday</td><td>Cardio</td><td>30-45 minute brisk walk, jog, or cycling session.</td></tr><tr><td>Wednesday</td><td>Full Body Strength</td><td>Deadlifts, Overhead Press, Pull-ups (or lat pulldowns), Glute Bridges.</td></tr><tr><td>Thursday</td><td>Active Recovery</td><td>Light Yoga, Stretching, or a leisurely walk.</td></tr><tr><td>Friday</td><td>HIIT (High-Intensity Interval Training)</td><td>20 minutes of: 30s Burpees, 30s Rest; 30s Jumping Jacks, 30s Rest.</td></tr><tr><td>Saturday</td><td>Long-duration Cardio</td><td>60-minute hike, long bike ride, or swimming.</td></tr><tr><td>Sunday</td><td>Full Rest</td><td>Relax and allow your body to recover and rebuild.</td></tr></tbody>
+            </table>
+            <h3>Don't Forget Rest & Recovery</h3>
+            <p>Muscles are built during rest, not in the gym. Aim for 7-9 hours of quality sleep per night. Listen to your body; if you feel overly fatigued, take an extra rest day.</p>
+        </section>
+
+        <section id="products">
+            <h2>Featured Products</h2>
+            <div class="products-container"><div class="product-card"><img src="images/product1.jpg" alt="Fitness Tracker"><p><strong>Fitness Tracker</strong><br>₹2,999</p><button>Add to Cart</button></div><div class="product-card"><img src="images/product2.jpg" alt="Protein Powder"><p><strong>Protein Powder</strong><br>₹1,499</p><button>Add to Cart</button></div><div class="product-card"><img src="images/product3.jpg" alt="Yoga Mat"><p><strong>Yoga Mat</strong><br>₹799</p><button>Add to Cart</button></div></div>
+        </section>
+
+        <section id="glossary">
+            <h2>Dietary Glossary</h2>
+            <dl><dt>Macronutrients</dt><dd>The primary nutrients required in large amounts: carbohydrates, proteins, and fats.</dd><dt>Micronutrients</dt><dd>Essential vitamins and minerals required by the body in smaller quantities.</dd><dt>Calorie</dt><dd>A unit of energy from food and drink, and the energy used in physical activity.</dd></dl>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Holistic Fitness Plan. All Rights Reserved.</p>
+        <p>Your Health Journey, Simplified.</p>
+    </footer>
+</body>
+</html>

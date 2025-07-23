@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+      Author: Jerome Prince P
+      Registration Number: URK23CSI039
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Quote Request</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url("images/background-final.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        label:not(.no-star)::after {
+            content: " *";
+            color: #ef4444; /* red-500 */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+
+    <div class="w-full max-w-4xl bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border border-gray-200">
+        
+        <!-- Page Header with local logo file -->
+        <header class="text-center mb-8">
+            <img src="images/logo-final.jpeg" alt="Insurance J Logo" class="mx-auto mb-4 h-24 w-24 rounded-full object-cover border-4 border-white shadow-lg">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Insurance Quote Request</h1>
+            <p class="text-gray-500 mt-2">Please fill out the form below to receive your personalized insurance quote.</p>
+        </header>
+
+        <!-- The main registration form -->
+        <form action="/serverlogic" method="post" class="space-y-8">
+
+            <!-- Fieldset for Personal Information -->
+            <fieldset class="border border-gray-300 rounded-lg p-6">
+                <legend class="text-xl font-semibold text-gray-700 px-2">Personal Information</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    
+                    <!-- Full Name Input -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-600">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g., John Doe" autofocus required maxlength="100" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <!-- Email Input -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-600">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <!-- Phone Number Input with Pattern Validation -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-600">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g., 123-456-7890" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Phone number must be in the format 123-456-7890" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <!-- Date of Birth Input -->
+                    <div>
+                        <label for="dob" class="block text-sm font-medium text-gray-600">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required max="2006-01-01" min="1924-01-01" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-500">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Fieldset for Account and Profile Details -->
+            <fieldset class="border border-gray-300 rounded-lg p-6">
+                <legend class="text-xl font-semibold text-gray-700 px-2">Account & Profile</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <!-- Password Input -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-600">Create Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter a secure password" required minlength="8" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <!-- URL Input -->
+                    <div>
+                        <label for="website" class="block text-sm font-medium text-gray-600">Personal Website or LinkedIn URL</label>
+                        <input type="url" id="website" name="website" placeholder="https://example.com" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Fieldset for Insurance Details -->
+            <fieldset class="border border-gray-300 rounded-lg p-6">
+                <legend class="text-xl font-semibold text-gray-700 px-2">Insurance Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 mt-4">
+                    
+                    <!-- Radio Buttons for Gender -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600">Gender</label>
+                        <div class="mt-2 flex items-center space-x-6">
+                            <div class="flex items-center">
+                                <input id="genderMale" name="gender" type="radio" value="male" required class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                <label for="genderMale" class="ml-2 block text-sm text-gray-900 no-star">Male</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="genderFemale" name="gender" type="radio" value="female" required class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                <label for="genderFemale" class="ml-2 block text-sm text-gray-900 no-star">Female</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input id="genderOther" name="gender" type="radio" value="other" required class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                                <label for="genderOther" class="ml-2 block text-sm text-gray-900 no-star">Other</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkboxes for Insurance Type -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600">Types of Insurance Interested In</label>
+                        <div class="mt-2 grid grid-cols-2 gap-x-4 gap-y-2">
+                            <div class="flex items-center">
+                                <input id="insuranceHealth" name="insuranceType" type="checkbox" value="health" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                <label for="insuranceHealth" class="ml-2 block text-sm text-gray-900 no-star">Health Insurance</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="insuranceAuto" name="insuranceType" type="checkbox" value="auto" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                <label for="insuranceAuto" class="ml-2 block text-sm text-gray-900 no-star">Auto Insurance</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="insuranceHome" name="insuranceType" type="checkbox" value="home" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                <label for="insuranceHome" class="ml-2 block text-sm text-gray-900 no-star">Home Insurance</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="insuranceLife" name="insuranceType" type="checkbox" value="life" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                <label for="insuranceLife" class="ml-2 block text-sm text-gray-900 no-star">Life Insurance</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Select Dropdown for Coverage Level -->
+                    <div>
+                        <label for="coverageLevel" class="block text-sm font-medium text-gray-600">Desired Coverage Level</label>
+                        <select id="coverageLevel" name="coverageLevel" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="">Please select a level</option>
+                            <option value="basic">Basic</option>
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium</option>
+                            <option value="platinum">Platinum</option>
+                            <option value="gold">Gold</option>
+                        </select>
+                    </div>
+
+                    <!-- Number Input for Dependents -->
+                    <div>
+                        <label for="dependents" class="block text-sm font-medium text-gray-600">Number of Dependents</label>
+                        <input type="number" id="dependents" name="dependents" required min="0" max="20" placeholder="0" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <!-- File Upload Input -->
+                    <div class="md:col-span-2">
+                        <label for="documentUpload" class="block text-sm font-medium text-gray-600">Upload Supporting Documents (e.g., ID)</label>
+                        <input type="file" id="documentUpload" name="documentUpload" required class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100">
+                    </div>
+
+                    <!-- Search Input (made optional by removing 'required') -->
+                    <div class="md:col-span-2">
+                        <label for="policySearch" class="block text-sm font-medium text-gray-600 no-star">Search for a specific policy (optional)</label>
+                        <input type="search" id="policySearch" name="policySearch" placeholder="Search by policy name or keyword..." class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <!-- Textarea for Additional Information -->
+                    <div class="md:col-span-2">
+                        <label for="comments" class="block text-sm font-medium text-gray-600">Additional Information or Comments</label>
+                        <textarea id="comments" name="comments" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Please provide any other relevant details..."></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Form Progress Indicator -->
+            <div class="space-y-2">
+                <label for="formProgress" class="block text-sm font-medium text-gray-600 no-star">Form Completion Progress</label>
+                <progress id="formProgress" value="50" max="100" class="w-full h-2.5 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg   [&::-webkit-progress-bar]:bg-slate-300 [&::-webkit-progress-value]:bg-indigo-600 [&::-moz-progress-bar]:bg-indigo-600"></progress>
+            </div>
+
+            <!-- Form Submission Buttons -->
+            <div class="flex items-center justify-end space-x-4 pt-4">
+                <input type="reset" value="Reset Form" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer">
+                <input type="submit" value="Get My Quote" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

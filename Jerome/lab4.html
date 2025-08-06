@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jojo Mobile Services - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+        }
+        .font-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0));
+            transition: background-color 0.3s;
+        }
+        .nav-link {
+            color: #e5e5e5;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-link:hover {
+            color: #ffffff;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #e50914;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes kenburns-zoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes image-slideshow {
+            0% {
+                background-image: url('https://images.unsplash.com/photo-1617802690992-06d328014315?q=80&w=2070&auto=format&fit=crop');
+            }
+            25% {
+                background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop');
+            }
+            50% {
+                background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop');
+            }
+            75% {
+                background-image: url('https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1974&auto=format&fit=crop');
+            }
+            100% {
+                background-image: url('https://images.unsplash.com/photo-1617802690992-06d328014315?q=80&w=2070&auto=format&fit=crop');
+            }
+        }
+
+        .hero-section {
+            overflow: hidden; 
+            isolation: isolate; /* This creates a new stacking context, fixing the z-index issue */
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            animation: kenburns-zoom 30s infinite alternate ease-in-out, image-slideshow 25s infinite;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,1) 0, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
+            z-index: -1;
+        }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .form-input {
+            background-color: #333333;
+            border: 1px solid #333333;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            background-color: #454545;
+            border-color: #454545;
+            box-shadow: none;
+        }
+        .form-input::placeholder {
+            color: #8c8c8c;
+        }
+        .submit-btn {
+            background-color: #e50914;
+            font-weight: 700;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .submit-btn:hover {
+            background-color: #f40612;
+        }
+        .checkbox-custom {
+            accent-color: #b3b3b3;
+        }
+        .help-link {
+            color: #b3b3b3;
+            font-size: 0.8rem;
+        }
+        .help-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <nav class="navbar p-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="font-brand text-4xl text-red-600">JOJO MOBILE SERVICES</span>
+                    </div>
+                    <div class="hidden md:flex items-baseline space-x-6">
+                        <a href="#" class="nav-link text-sm">Home</a>
+                        <a href="#" class="nav-link text-sm">Services</a>
+                        <a href="#" class="nav-link text-sm">Products</a>
+                        <a href="#" class="nav-link text-sm">Career</a>
+                        <a href="#" class="nav-link text-sm">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section relative min-h-screen flex items-center justify-center">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 w-full max-w-md mx-auto px-4">
+            <div class="login-container rounded-md p-8 md:p-16">
+                <div class="text-left mb-8">
+                    <h2 class="text-3xl font-bold text-white">Sign In</h2>
+                </div>
+                <form action="#" method="POST">
+                    <div class="space-y-4">
+                        <div>
+                            <div class="mt-1">
+                                <input id="username" name="username" type="text" required placeholder="Email or username"
+                                       class="form-input w-full px-4 py-3 rounded-md">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mt-1">
+                                <input id="password" name="password" type="password" required placeholder="Password"
+                                       class="form-input w-full px-4 py-3 rounded-md">
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="submit-btn w-full flex justify-center py-3 px-4 border border-transparent rounded-md text-base font-medium text-white">
+                                Sign In
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="flex items-center justify-between mt-4">
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox" class="checkbox-custom h-4 w-4 rounded-sm border-gray-600 bg-gray-700">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-400">Remember me</label>
+                    </div>
+                    <a href="#" class="help-link">Need help?</a>
+                </div>
+                <div class="mt-12 text-gray-500 text-sm">
+                    New to Jojo Mobile Services? <a href="#" class="text-white hover:underline">Sign up now</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

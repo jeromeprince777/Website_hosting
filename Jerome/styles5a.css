@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+header {
+    background-color: #d9534f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.cake-display {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #eee;
+}
+
+.cake-item {
+    text-align: center;
+    width: 200px;
+    margin: 10px;
+}
+
+.cake-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.cake-item p {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.order-form {
+    padding: 30px;
+    text-align: center;
+}
+
+.order-form form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fafafa;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.bill-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f9ff;
+    border: 1px solid #b3e0ff;
+    border-radius: 5px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bill-result h4 {
+    margin: 0 0 10px 0;
+}
+
+.bill-result p {
+    margin: 0;
+    font-weight: bold;
+    color: green;
+    font-size: 1.2em;
+}

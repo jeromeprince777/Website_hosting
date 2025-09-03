@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Shop</title>
+    <link rel="stylesheet" href="styles5a.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CAKE SHOP</h1>
+        </header>
+
+        <section class="cake-display">
+            <div class="cake-item">
+                <img src="images/rainbow-cake.jpg" alt="Rainbow Cake">
+                <p>Rainbow Cake - Rs. 300</p>
+            </div>
+            <div class="cake-item">
+                <img src="images/chocolate-cake.jpg" alt="Chocolate Cake">
+                <p>Chocolate Cake - Rs. 300</p>
+            </div>
+            <div class="cake-item">
+                <img src="images/red-velvet-cake.jpg" alt="Red Velvet Cake">
+                <p>Red Velvet Cake - Rs. 250</p>
+            </div>
+            <div class="cake-item">
+                <img src="images/black-forest-cake.jpg" alt="Black Forest Cake">
+                <p>Black Forest Cake - Rs. 350</p>
+            </div>
+        </section>
+
+        <section class="order-form">
+            <h2>Order Cake</h2>
+            <form>
+                <div class="form-group">
+                    <label for="rainbow">Rainbow Cake (Quantity)</label>
+                    <input type="number" id="rainbow" min="0" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="chocolate">Chocolate Cake (Quantity)</label>
+                    <input type="number" id="chocolate" min="0" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="redVelvet">Red Velvet Cake (Quantity)</label>
+                    <input type="number" id="redVelvet" min="0" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="blackForest">Black Forest Cake (Quantity)</label>
+                    <input type="number" id="blackForest" min="0" placeholder="0">
+                </div>
+                <button type="button" onclick="calculateBill()">Place Order</button>
+            </form>
+            <div id="bill-result" class="bill-result">
+            </div>
+        </section>
+    </div>
+    <script src="script5a.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Loan EMI Calculator</title>
+    <link rel="stylesheet" href="style5b.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="calculator-container">
+        <header>
+            <h1>Loan EMI Calculator</h1>
+            <p>Enter your loan details to calculate the Equated Monthly Instalment (EMI).</p>
+        </header>
+
+        <form id="emi-form">
+            <div class="form-group">
+                <label for="loanAmount">Loan Amount (₹)</label>
+                <input type="number" id="loanAmount" placeholder="e.g., 1000000" required>
+            </div>
+            <div class="form-group">
+                <label for="interestRate">Annual Interest Rate (%)</label>
+                <input type="number" id="interestRate" step="0.01" placeholder="e.g., 9.5" required>
+            </div>
+            <div class="form-group">
+                <label for="tenure">Tenure (Years)</label>
+                <input type="number" id="tenure" placeholder="e.g., 6" required>
+            </div>
+            <button type="submit">Calculate EMI</button>
+        </form>
+
+        <div id="result" class="result-container">
+            </div>
+    </div>
+    <script src="script5b.js"></script>
+</body>
+</html>

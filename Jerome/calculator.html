@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" value="10">
+
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" value="20">
+
+        <div class="buttons">
+            <button onclick="add()">Add</button>
+            <button onclick="subtract()">Subtract</button>
+            <button onclick="multiply()">Multiply</button>
+            <button onclick="divide()">Divide</button>
+        </div>
+
+        <div id="result">Result: 30</div>
+    </div>
+
+    <script>
+        // Helper function to get and parse numbers
+        function getInputs() {
+            let n1 = parseFloat(document.getElementById('num1').value) || 0;
+            let n2 = parseFloat(document.getElementById('num2').value) || 0;
+            return { n1, n2 };
+        }
+
+    // Helper function to display the result
+        function showResult(value) {
+            document.getElementById('result').innerHTML = "Result: " + value;
+        }
+
+    // Operation Functions
+        function add() {
+            let { n1, n2 } = getInputs();
+            showResult(n1 + n2);
+        }
+
+        function subtract() {
+            let { n1, n2 } = getInputs();
+            showResult(n1 - n2);
+        }
+
+        function multiply() {
+            let { n1, n2 } = getInputs();
+            showResult(n1 * n2);
+        }
+
+        function divide() {
+            let { n1, n2 } = getInputs();
+            if (n2 === 0) {
+                // Check for division by zero
+                showResult("Error (divide by 0)");
+            } else {
+                showResult(n1 / n2);
+            }
+        }
+        
+    // Run add() on load to show the default result
+        add();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan EMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        #results p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        #results p span {
+            font-weight: bold;
+            float: right;
+        }
+        #emiResult {
+            font-size: 1.25rem !important;
+            color: #007bff !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Loan EMI Calculator</h2>
+
+        <div class="input-group">
+            <label for="loanAmount">Loan Amount (₹):</label>
+            <input type="number" id="loanAmount" value="1000000">
+        </div>
+
+        <div class="input-group">
+            <label for="interestRate">Annual Interest Rate (%):</label>
+            <input type="number" id="interestRate" step="0.1" value="9.5">
+        </div>
+
+        <div class="input-group">
+            <label for="tenure">Tenure (Years):</label>
+            <input type="number" id="tenure" value="6">
+        </div>
+
+        <button onclick="calculateEMI()">Calculate</button>
+
+        <div id="results">
+            <p>Loan Amount: <span id="out_loanAmount"></span></p>
+            <p>Total Interest: <span id="out_totalInterest"></span></p>
+            <p id="emiResult">EMI: <span id="out_emi"></span></p>
+            <p>Total Repayment: <span id="out_totalRepayment"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateEMI() {
+            // 1. Get Inputs
+            let P = parseFloat(document.getElementById('loanAmount').value);
+            let annualRate = parseFloat(document.getElementById('interestRate').value);
+            let tenureYears = parseFloat(document.getElementById('tenure').value);
+
+            if (isNaN(P) || isNaN(annualRate) || isNaN(tenureYears) || P <= 0 || annualRate <= 0 || tenureYears <= 0) {
+                alert("Please enter valid positive numbers for all fields.");
+                return;
+            }
+
+            // 2. Calculate R (monthly rate) and N (months)
+            let R = (annualRate / 12) / 100;
+            let N = tenureYears * 12;
+
+            // 3. Calculate EMI using the formula
+            // EMI = [P * R * (1+R)^N] / [(1+R)^N - 1]
+            let numerator = P * R * Math.pow(1 + R, N);
+            let denominator = Math.pow(1 + R, N) - 1;
+            
+            if (denominator === 0) {
+                alert("Cannot calculate EMI. Please check your inputs.");
+                return;
+            }
+
+            let emi = numerator / denominator;
+            let totalRepayment = emi * N;
+            let totalInterest = totalRepayment - P;
+
+            // 4. Display Results
+            // Using Intl.NumberFormat for nice currency formatting
+            const currencyFormatter = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            });
+            
+            const numberFormatter = new Intl.NumberFormat('en-IN', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            });
+
+
+            document.getElementById('out_loanAmount').innerText = currencyFormatter.format(P);
+            document.getElementById('out_totalInterest').innerText = currencyFormatter.format(totalInterest);
+            document.getElementById('out_emi').innerText = currencyFormatter.format(emi);
+            document.getElementById('out_totalRepayment').innerText = currencyFormatter.format(totalRepayment);
+        }
+        
+        // Calculate on load for default values
+        calculateEMI();
+    </script>
+
+</body>
+</html>
